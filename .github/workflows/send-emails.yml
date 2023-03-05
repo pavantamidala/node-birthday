@@ -18,6 +18,6 @@ jobs:
     - name: Send Emails
       run: node send-emails.js
       env:
-        EMAIL_ADDRESS: ${{ secrets.EMAIL_USER }}
-        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        RECIPIENT_EMAIL: example@example.com
+        EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        RECEPIENT_EMAIL: ${{secrets.RECEPIENT_EMAIL}}
