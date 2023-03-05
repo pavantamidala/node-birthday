@@ -1,0 +1,23 @@
+name: Send Emails
+
+on:
+  schedule:
+    - cron: '*/2 * * * *'
+
+jobs:
+  send_emails:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    - name: Install PNPM dependencies
+      run: npm install -g pnpm && pnpm install
+    - name: Send Emails
+      run: node send-emails.js
+      env:
+        EMAIL_ADDRESS: ${{ secrets.EMAIL_USER }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        RECIPIENT_EMAIL: example@example.com
