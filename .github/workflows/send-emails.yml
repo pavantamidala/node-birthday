@@ -1,9 +1,10 @@
 name: Send Emails
 
 on:
-  schedule:
-    - cron: '*/2 * * * *'
-
+  push:
+    branches:
+      - master
+      
 jobs:
   send_emails:
     runs-on: ubuntu-latest
